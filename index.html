@@ -17,6 +17,9 @@
     const block = document.querySelector('.block');
     const jmp = ()=>{
         block.classList.add('blockJmp');
+        block.addEventListener('animationend',()=>{
+            block.classList.remove('blockJmp')
+        })
     }
     document.addEventListener('keydown',jmp)
 </script>
