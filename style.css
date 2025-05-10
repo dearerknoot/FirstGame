@@ -12,6 +12,11 @@
     overflow: hidden;
     margin-top: 200px;
 }
+.div{
+    width: 100%;
+    text-align: center; 
+    margin-top: 50px;
+}
 .block{
     bottom: 0;
     width: 50px;
