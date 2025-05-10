@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    zoom: 150%;
+}
 .main{
     width: 500px;  
     height: 200px;

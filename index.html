@@ -8,19 +8,22 @@
 </head>
 <body>
     <div class="main">
-        <img src="block.png" class="block">
+        <img src="Jailson_Mendes.jpg" class="block">
         <img src="images.png" class="spike">
     </div>
     <div class="div">
          <button class="bt" onclick="window.location.reload()">Reload</button> 
+         <audio id="ad" src="audio.mp3"></audio>
     </div>
 </body>
 <script>
     const box  = document.querySelector('.main');
     const block = document.querySelector('.block');
     let spike = document.querySelector('.spike');
+    let endGame = false;
     const jmp = ()=>{
         block.classList.add('blockJmp');  
+        console.log(endGame)
         block.addEventListener('animationend',()=>{
             block.classList.remove('blockJmp')
         })
@@ -30,18 +33,20 @@
 
         const spikePosition = spike.offsetLeft;
         const blockPosition = +window.getComputedStyle(block).bottom.replace('px','');
- 
-        console.log(blockPosition)
-        if(spikePosition <= 100 && spikePosition > 0 && blockPosition < 50){
+        const ad =document.getElementById('ad');
+        if(spikePosition <= 100 && spikePosition > 0 && blockPosition < 50 && endGame == false){
+            endGame = true;
+            block.style.animation = 'none'; 
             spike.style.animation = 'none';
             spike.style.left = `${spikePosition}px`;
-            block.style.animation = 'none'; 
             block.style.bottom = `${blockPosition}px`;
+            block.setAttribute('src','macho.jpg');
+            if(endGame){
+                ad.play()
+            }
         }
-    },10)
+    },10);
 
     document.addEventListener('keydown',jmp)
-
-
 </script> 
 </html>
